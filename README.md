@@ -46,36 +46,55 @@ You can install this plugin directly from GitHub using `remotes` within RKWard:
 ```r
 require(remotes)
 install_github("AlfCano/rk.quarto")
+```
+
+
 Once installed, restart RKWard to ensure the new menu items appear correctly.
-Usage
+
+## Usage
+
 The plugin is located in the main menu under:
-File -> Quarto Generators
+**File -> Quarto Generators**
+
 It consists of three main tools:
-1. Document Builder
+
+### 1. Document Builder
 Use this tool to generate a standard Quarto document header. The interface is divided into two main areas:
-Metadata: Define the core details of your document (Title, Author, and dynamic Date).
-Format & Options:
-Select your primary export format (HTML, PDF, or Word).
-Apply visual themes (if HTML is selected).
-Toggle global settings like Table of Contents (toc: true) and section numbering (number-sections: true).
-2. Quarto Cheat Sheet
+
+*   **Metadata**: Define the core details of your document (Title, Author, and dynamic Date).
+*   **Format & Options**: 
+    *   Select your primary export format (HTML, PDF, or Word).
+    *   Apply visual themes (if HTML is selected).
+    *   Toggle global settings like Table of Contents (`toc: true`) and section numbering (`number-sections: true`).
+
+### 2. Quarto Cheat Sheet
 Use this tool as an integrated reference guide to inject modern Quarto syntax directly into your script.
-Chunks & Code: Generate R chunks using the modern Hash-pipe (#|) options for figures, tables, and hidden code.
-Cross-References: Learn how to automatically link text to figures using @fig-label.
-Layouts: Instantly generate the syntax for callout boxes, interactive HTML tabsets, and multi-column document designs.
-3. Journal Templates
+*   **Chunks & Code**: Generate R chunks using the modern Hash-pipe (`#|`) options for figures, tables, and hidden code.
+*   **Cross-References**: Learn how to automatically link text to figures using `@fig-label`.
+*   **Layouts**: Instantly generate the syntax for `callout` boxes, interactive HTML `tabsets`, and multi-column document designs.
+
+### 3. Journal Templates
 Use this tool to write academic papers using official Quarto extensions.
-Metadata: Input your manuscript title, abstract, and formatting preferences.
-Journal Selection: Choose between APA 7th Edition (apaquarto), Elsevier, IEEE, or PLOS formats.
-CLI Instructions: The plugin will generate the YAML header and provide you with the exact terminal command required to download the journal template to your local machine.
-Requirements
-RKWard: 0.7.5 or higher.
-System: Quarto CLI must be installed on your computer.
-R Packages:
-yaml
-Author
-Alfonso Cano Robles
-Email: alfonso.cano@correo.buap.mx
+*   **Metadata**: Input your manuscript title, abstract, and formatting preferences.
+*   **Journal Selection**: Choose between APA 7th Edition (`apaquarto`), Elsevier, IEEE, or PLOS formats.
+*   **CLI Instructions**: The plugin will generate the YAML header *and* provide you with the exact terminal command required to download the journal template to your local machine.
+
+---
+
+## Requirements
+
+*   **RKWard**: 0.7.5 or higher.
+*   **System**: [Quarto CLI](https://quarto.org/docs/get-started/) must be installed on your computer.
+*   **R Packages**:
+    *   `yaml`
+
+## Author
+
+**Alfonso Cano Robles**
+*   Email: alfonso.cano@correo.buap.mx
+
 Assisted by Gemini, a large language model from Google.
-License
-This project is licensed under the GPL (>= 3).
+
+## License
+
+This project is licensed under the **GPL (>= 3)**.

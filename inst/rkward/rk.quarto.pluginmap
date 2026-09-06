@@ -20,7 +20,7 @@
 		name="rk.quarto"
 		shortinfo="RKWard Plugin Suite for Quarto Document generation."
 		longinfo="RKWard Plugin Suite for Quarto Document generation."
-		version="0.0.2"
+		version="0.0.3"
 		releasedate="2026-09-06"
 		url="https://github.com/AlfCano/rk.quarto"
 		license="GPL (&gt;= 3)"

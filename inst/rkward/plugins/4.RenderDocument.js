@@ -23,9 +23,6 @@ function calculate(is_preview){
     var format = getValue('c4_format');
     var output = cleanStr(getValue('c4_output'));
 
-    echo('## Prepare\n');
-    echo('require(quarto)\n\n');
-    echo('## Compute\n');
     echo('quarto::quarto_render(\n');
     echo('  input = \'' + input + '\'');
 
@@ -73,7 +70,6 @@ function printout(is_preview){
        }
     }
 
-    echo('## Print result\n');
     echo('rk.header("Export Quarto Document", parameters = list(\n');
     echo('  "Quarto File" = \'' + input + '\',\n');
     echo('  "Target Format" = \'' + format_lbl + '\',\n');

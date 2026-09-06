@@ -40,7 +40,7 @@
 				<option label="DokuWiki" value="dokuwiki" />
 				<option label="eBook (ePub)" value="epub" />
 			</dropdown>
-			<browser label="Save as (Leave blank for default location)" type="savefile" id="c4_output" required="false" />
+			<browser label="Save as (Leave blank to use source directory and auto-extension)" type="savefile" id="c4_output" required="false" />
 		</column>
 	</dialog>
 </document>

@@ -1,7 +1,7 @@
 Package: rk.quarto
 Type: Package
 Title: RKWard Plugin Suite for Quarto Document generation.
-Version: 0.0.2
+Version: 0.0.3
 Date: 2026-09-06
 Author: Alfonso Cano Robles
 Maintainer: Alfonso Cano Robles <alfonso.cano@correo.buap.mx>

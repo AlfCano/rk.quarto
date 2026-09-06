@@ -2,13 +2,19 @@
 
 > **Quarto Document Generation Suite for RKWard**
 
-![Version](https://img.shields.io/badge/Version-0.0.2-blue.svg)
+![Version](https://img.shields.io/badge/Version-0.0.3-blue.svg)
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 ![RKWard](https://img.shields.io/badge/Platform-RKWard-green)
 [![R Linter](https://github.com/AlfCano/rk.quarto/actions/workflows/lintr.yml/badge.svg)](https://github.com/AlfCano/rk.quarto/actions/workflows/lintr.yml)
 ![AI Gemini](https://img.shields.io/badge/AI-Gemini-4285F4?logo=googlegemini&logoColor=white)
 
 **rk.quarto** is an RKWard plugin that provides a graphical interface for generating boilerplates, YAML headers, and syntax snippets for [Quarto](https://quarto.org/) (`.qmd`) documents. It allows users to easily set up complex metadata, insert native Quarto features (like callouts and multi-column layouts), and configure academic journal extensions without needing to memorize syntax rules.
+
+## What's New in Version 0.0.3
+
+**🧼 Clean Code Generation & 🛡️ Bulletproof Exporting**
+*   **Native RKWard Integration**: Completely refactored the JavaScript generation engine. The plugin now perfectly hooks into RKWard's native step-by-step execution (`## Prepare`, `## Compute`) and dependency management, eliminating duplicated `require()` calls and redundant headers.
+*   **Stable Exporter Logic**: Redesigned the "Save as" mechanism in the Render tool. Instead of forcing fragile GUI logic, the plugin now safely delegates directory pathing and auto-extension calculations directly to the Quarto engine and the RKWard output window, ensuring 100% stability without crashes.
 
 ## What's New in Version 0.0.2
 
@@ -35,6 +41,7 @@
 *   **Academic Ready**: Bypass LaTeX headaches by using Quarto's native extension system for academic journals.
 *   **Terminal Helpers**: Automatically generates the exact `quarto add` or `quarto use template` CLI commands you need to paste into your terminal for journal templates to work.
 *   **Seamless Rendering**: Compile your documents locally via the new Exporter tool, which includes real-time path calculations and supports over 10 Quarto output formats (including eBooks and presentations).
+*   **Smart Save**: Leave the "Save as" field blank, and the plugin will automatically calculate the correct output path and file extension (e.g., swapping `.qmd` to `.docx`) in the same directory as your source file. Alternatively, define a custom path to overwrite this behavior.
     
 ## 🌍 Internationalization
 

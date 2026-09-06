@@ -1,0 +1,46 @@
+<!DOCTYPE rkplugin >
+<document>
+	<!--
+		this code was generated using the rkwarddev package.
+	perhaps don't make changes here, but in the rkwarddev script instead!
+	-->
+	<code file="4.RenderDocument.js" />
+	<help file="4.RenderDocument.rkh" />
+	<!--
+		<dependencies>
+		</dependencies>
+	-->
+	<logic>
+		<!--
+			<convert id="!edit!" sources="!edit!" mode="equals" standard="!edit!" />
+		-->
+		<!--
+			<connect governor="!edit!.state" client="!edit!.enabled" />
+		-->
+	</logic>
+	<dialog label="4. Export Quarto Document">
+		<column id="clm_tSYSYQF44T">
+			<text id="txt_SlctqmdY">
+				Select a .qmd file to compile it into the final output format. You can define the destination name and location.
+			</text>
+			<browser label="Quarto File (.qmd)" type="file" id="c4_input" />
+			<dropdown id="c4_format" label="Target Output Format">
+				<option label="The first format defined in the document" value="" checked="true" />
+				<option label="All formats defined in the document" value="all" />
+				<option label="HTML Document" value="html" />
+				<option label="PDF Document" value="pdf" />
+				<option label="Word Document (.docx)" value="docx" />
+				<option label="RevealJS Presentation (HTML)" value="revealjs" />
+				<option label="Beamer Presentation (PDF)" value="beamer" />
+				<option label="PowerPoint Presentation (.pptx)" value="pptx" />
+				<option label="ODT Document" value="odt" />
+				<option label="RTF Document" value="rtf" />
+				<option label="Markdown (GitHub Flavored)" value="gfm" />
+				<option label="MediaWiki" value="mediawiki" />
+				<option label="DokuWiki" value="dokuwiki" />
+				<option label="eBook (ePub)" value="epub" />
+			</dropdown>
+			<browser label="Save as (Leave blank for default location)" type="savefile" id="c4_output" required="false" />
+		</column>
+	</dialog>
+</document>

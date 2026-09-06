@@ -2,13 +2,19 @@
 
 > **Quarto Document Generation Suite for RKWard**
 
-![Version](https://img.shields.io/badge/Version-0.0.1-blue.svg)
+![Version](https://img.shields.io/badge/Version-0.0.2-blue.svg)
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 ![RKWard](https://img.shields.io/badge/Platform-RKWard-green)
 [![R Linter](https://github.com/AlfCano/rk.quarto/actions/workflows/lintr.yml/badge.svg)](https://github.com/AlfCano/rk.quarto/actions/workflows/lintr.yml)
 ![AI Gemini](https://img.shields.io/badge/AI-Gemini-4285F4?logo=googlegemini&logoColor=white)
 
 **rk.quarto** is an RKWard plugin that provides a graphical interface for generating boilerplates, YAML headers, and syntax snippets for [Quarto](https://quarto.org/) (`.qmd`) documents. It allows users to easily set up complex metadata, insert native Quarto features (like callouts and multi-column layouts), and configure academic journal extensions without needing to memorize syntax rules.
+
+## What's New in Version 0.0.2
+
+**📦 New Component: The Quarto Renderer (Exporter)**
+*   **GUI-Driven Compilation:** You can now compile your `.qmd` files into their final formats (Word, PDF, HTML, RevealJS, PowerPoint, etc.) directly from the RKWard interface without typing `quarto render` in the console.
+*   **Smart Auto-fill UX:** When you select a source `.qmd` file and pick a target format from the dropdown, the plugin's interface reacts instantly, auto-calculating the destination path and swapping the extension (e.g., `.qmd` to `.docx`) in real-time.
 
 ## What's New in Version 0.0.1
 
@@ -28,6 +34,7 @@
     *   **Layouts**: Generate Quarto HTML `:::` div containers for notes, tabs, and columns.
 *   **Academic Ready**: Bypass LaTeX headaches by using Quarto's native extension system for academic journals.
 *   **Terminal Helpers**: Automatically generates the exact `quarto add` or `quarto use template` CLI commands you need to paste into your terminal for journal templates to work.
+*   **Seamless Rendering**: Compile your documents locally via the new Exporter tool, which includes real-time path calculations and supports over 10 Quarto output formats (including eBooks and presentations).
     
 ## 🌍 Internationalization
 
@@ -79,6 +86,12 @@ Use this tool to write academic papers using official Quarto extensions.
 *   **Journal Selection**: Choose between APA 7th Edition (`apaquarto`), Elsevier, IEEE, or PLOS formats.
 *   **CLI Instructions**: The plugin will generate the YAML header *and* provide you with the exact terminal command required to download the journal template to your local machine.
 
+### 4. Render Document (Exporter)
+Use this tool to compile an existing `.qmd` file into its final document format.
+*   **Input**: Browse and select your Quarto source file.
+*   **Format**: Choose from an extensive list of targets (HTML, PDF, Word, RevealJS, PowerPoint, Markdown, ODT, ePub, etc.).
+*   **Smart Save**: The plugin will automatically calculate the output path and extension based on your format selection. You can leave it as is, or edit it to save the output in a custom directory.
+
 ---
 
 ## Requirements
@@ -87,6 +100,7 @@ Use this tool to write academic papers using official Quarto extensions.
 *   **System**: [Quarto CLI](https://quarto.org/docs/get-started/) must be installed on your computer.
 *   **R Packages**:
     *   `yaml`
+    *   `quarto` (Required for the Render Document tool)
 
 ## Author
 

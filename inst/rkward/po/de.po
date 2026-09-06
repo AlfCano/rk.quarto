@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: rk.quarto 0.0.1\n"
+"Project-Id-Version: rk.quarto 0.0.2\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -98,3 +98,48 @@ msgstr "Word-Dokument (.docx)"
 
 msgid "Note: Quarto Journals require extensions installed via Terminal."
 msgstr "Hinweis: Quarto Journals erfordern über das Terminal installierte Erweiterungen."
+
+msgid "4. Render Document"
+msgstr "4. Dokument rendern"
+
+msgid "Compiles a Quarto (.qmd) file to its final format."
+msgstr "Kompiliert eine Quarto-Datei (.qmd) in ihr endgültiges Format."
+
+msgid "Quarto File (.qmd)"
+msgstr "Quarto-Datei (.qmd)"
+
+msgid "Target Output Format"
+msgstr "Ziel-Ausgabeformat"
+
+msgid "The first format defined in the document"
+msgstr "Das erste im Dokument definierte Format"
+
+msgid "All formats defined in the document"
+msgstr "Alle im Dokument definierten Formate"
+
+msgid "RevealJS Presentation (HTML)"
+msgstr "RevealJS-Präsentation (HTML)"
+
+msgid "Beamer Presentation (PDF)"
+msgstr "Beamer-Präsentation (PDF)"
+
+msgid "PowerPoint Presentation (.pptx)"
+msgstr "PowerPoint-Präsentation (.pptx)"
+
+msgid "ODT Document"
+msgstr "ODT-Dokument"
+
+msgid "RTF Document"
+msgstr "RTF-Dokument"
+
+msgid "eBook (ePub)"
+msgstr "E-Book (ePub)"
+
+msgid "Save as (Leave blank for default location)"
+msgstr "Speichern unter (Für Standardort leer lassen)"
+
+msgid "4. Export Quarto Document"
+msgstr "4. Quarto-Dokument exportieren"
+
+msgid "Select a .qmd file to compile it into the final output format. You can define the destination name and location."
+msgstr "Wählen Sie eine .qmd-Datei aus, um sie in das endgültige Ausgabeformat zu kompilieren. Sie können den Zielnamen und den Speicherort festlegen."

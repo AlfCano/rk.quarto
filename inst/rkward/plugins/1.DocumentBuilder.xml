@@ -1,0 +1,53 @@
+<!DOCTYPE rkplugin >
+<document>
+	<!--
+		this code was generated using the rkwarddev package.
+	perhaps don't make changes here, but in the rkwarddev script instead!
+	-->
+	<code file="1.DocumentBuilder.js" />
+	<help file="1.DocumentBuilder.rkh" />
+	<!--
+		<dependencies>
+		</dependencies>
+	-->
+	<logic>
+		<!--
+			<convert id="!edit!" sources="!edit!" mode="equals" standard="!edit!" />
+		-->
+		<!--
+			<connect governor="!edit!.state" client="!edit!.enabled" />
+		-->
+	</logic>
+	<dialog label="1. Document Builder">
+		<tabbook>
+			<tab label="Metadata" id="tab_Metadata">
+				<column id="clm_iDT1AQAN1J">
+					<input label="Document Title" id="q1_title" initial="Análisis en Quarto" required="true" />
+					<input label="Author Name(s)" id="q1_author" initial="Jane Doe" />
+					<checkbox id="q1_date" label="Use Current Date" value="TRUE" checked="true" />
+				</column>
+			</tab>
+			<tab label="Format" id="tab_Format">
+				<column id="clm_fEFEF1OFHT">
+					<frame label="Export Format" id="frm_ExprtFrm">
+						<dropdown id="q1_format" label="Output Format">
+							<option label="HTML Document" value="html" checked="true" />
+							<option label="PDF Document" value="pdf" />
+							<option label="Word Document" value="docx" />
+						</dropdown>
+					</frame>
+					<frame label="Options" id="frm_Options">
+						<dropdown id="q1_theme" label="HTML Theme (HTML only)">
+							<option label="Default (Cosmo)" value="default" checked="true" />
+							<option label="Flatly" value="flatly" />
+							<option label="Darkly" value="darkly" />
+							<option label="Journal" value="journal" />
+						</dropdown>
+						<checkbox id="q1_toc" label="Include Table of Contents" value="TRUE" checked="true" />
+						<checkbox id="q1_number" label="Number Sections" value="TRUE" />
+					</frame>
+				</column>
+			</tab>
+		</tabbook>
+	</dialog>
+</document>

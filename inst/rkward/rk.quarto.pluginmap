@@ -1,0 +1,117 @@
+<!DOCTYPE
+	rkpluginmap
+>
+<document
+	base_prefix=""
+	namespace="1DocumentBuilder"
+	id="1DocumentBuilder_rkward"
+	po_id="1DocumentBuilder_rkward"
+	priority="medium"
+>
+	<!--
+		this code was generated using the rkwarddev package.
+	perhaps don't make changes here, but in the rkwarddev script instead!
+	-->
+	<!--
+		<dependencies>
+		</dependencies>
+	-->
+	<about
+		name="rk.quarto"
+		shortinfo="RKWard Plugin Suite for Quarto Document generation."
+		longinfo="RKWard Plugin Suite for Quarto Document generation."
+		version="0.0.1"
+		releasedate="2026-09-05"
+		url="https://github.com/AlfCano/rk.quarto"
+		license="GPL (&gt;= 3)"
+	>
+		<author
+			given="Alfonso"
+			family="Cano Robles"
+			email="alfonso.cano@correo.buap.mx"
+			role="aut, cre"
+		/>
+	</about>
+	<require
+		map="rkward::menu"
+	/>
+	<require
+		map="rkward::embedded"
+	/>
+	<components>
+		<component
+			id="cmp_1DocumentBuildr2QrtChtSht"
+			label="2. Quarto Cheat Sheet"
+			type="standard"
+			file="plugins/2.QuartoCheatSheet.xml"
+		>
+		</component>
+		<component
+			id="cmp_1DocumentBuldr3JrnlTmplts"
+			label="3. Journal Templates"
+			type="standard"
+			file="plugins/3.JournalTemplates.xml"
+		>
+		</component>
+		<component
+			id="cmp_1DocumentBuildr1DcmntBldr"
+			label="1. Document Builder"
+			type="standard"
+			file="plugins/1.DocumentBuilder.xml"
+		>
+		</component>
+	</components>
+	<hierarchy>
+		<menu
+			id="file"
+			label="File"
+		>
+			<menu
+				id="QuartoGenerators"
+				label="Quarto Generators"
+			>
+				<entry
+					component="cmp_1DocumentBuildr2QrtChtSht"
+				/>
+			</menu>
+		</menu>
+		<menu
+			id="file"
+			label="File"
+		>
+			<menu
+				id="QuartoGenerators"
+				label="Quarto Generators"
+			>
+				<entry
+					component="cmp_1DocumentBuldr3JrnlTmplts"
+				/>
+			</menu>
+		</menu>
+		<menu
+			id="file"
+			label="File"
+		>
+			<menu
+				id="QuartoGenerators"
+				label="Quarto Generators"
+			>
+				<entry
+					component="cmp_1DocumentBuildr1DcmntBldr"
+				/>
+			</menu>
+		</menu>
+	</hierarchy>
+	<!--
+		<context
+			id="x11"
+		>
+		</context>
+	-->
+	<!--
+		<context
+			id="import"
+		>
+		</context>
+	-->
+</document>

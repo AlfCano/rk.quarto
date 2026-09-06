@@ -1,0 +1,100 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: rk.quarto 0.0.1\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "1. Document Builder"
+msgstr "1. Dokument-Ersteller"
+
+msgid "2. Quarto Cheat Sheet"
+msgstr "2. Quarto-Spickzettel"
+
+msgid "3. Journal Templates"
+msgstr "3. Journal-Vorlagen"
+
+msgid "Quarto Generators"
+msgstr "Quarto-Generatoren"
+
+msgid "Document Title"
+msgstr "Dokumenttitel"
+
+msgid "Author Name(s)"
+msgstr "Name(n) des Autors"
+
+msgid "Use Current Date"
+msgstr "Aktuelles Datum verwenden"
+
+msgid "Output Format"
+msgstr "Ausgabeformat"
+
+msgid "HTML Document"
+msgstr "HTML-Dokument"
+
+msgid "PDF Document"
+msgstr "PDF-Dokument"
+
+msgid "Word Document"
+msgstr "Word-Dokument"
+
+msgid "Include Table of Contents"
+msgstr "Inhaltsverzeichnis einfügen"
+
+msgid "Number Sections"
+msgstr "Abschnitte nummerieren"
+
+msgid "Metadata"
+msgstr "Metadaten"
+
+msgid "Format"
+msgstr "Format"
+
+msgid "Export Format"
+msgstr "Exportformat"
+
+msgid "Options"
+msgstr "Optionen"
+
+msgid "Select Quarto element to generate:"
+msgstr "Quarto-Element zum Generieren auswählen:"
+
+msgid "[Code] Basic R Chunk"
+msgstr "[Code] Basis R-Chunk"
+
+msgid "[Code] Plot & Cross-reference"
+msgstr "[Code] Plot & Querverweis"
+
+msgid "[Layout] Callouts (Notes)"
+msgstr "[Layout] Legenden (Notizen)"
+
+msgid "[Layout] Tabsets (HTML Tabs)"
+msgstr "[Layout] Registerkarten (HTML Tabs)"
+
+msgid "[Layout] Multiple Columns"
+msgstr "[Layout] Mehrere Spalten"
+
+msgid "Generates syntax for Quarto features."
+msgstr "Generiert Syntax für Quarto-Funktionen."
+
+msgid "Manuscript Title"
+msgstr "Manuskripttitel"
+
+msgid "Abstract (Optional)"
+msgstr "Zusammenfassung (Optional)"
+
+msgid "Academic Journal Extension"
+msgstr "Erweiterung für Fachzeitschriften"
+
+msgid "Output Document Type"
+msgstr "Ausgabedokumenttyp"
+
+msgid "PDF (Recommended)"
+msgstr "PDF (Empfohlen)"
+
+msgid "Word Document (.docx)"
+msgstr "Word-Dokument (.docx)"
+
+msgid "Note: Quarto Journals require extensions installed via Terminal."
+msgstr "Hinweis: Quarto Journals erfordern über das Terminal installierte Erweiterungen."

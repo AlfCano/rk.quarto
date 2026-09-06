@@ -1,0 +1,100 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: rk.quarto 0.0.1\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "1. Document Builder"
+msgstr "1. Constructor de Documentos"
+
+msgid "2. Quarto Cheat Sheet"
+msgstr "2. Hoja de Referencia Quarto"
+
+msgid "3. Journal Templates"
+msgstr "3. Plantillas de Revistas"
+
+msgid "Quarto Generators"
+msgstr "Generadores Quarto"
+
+msgid "Document Title"
+msgstr "Título del Documento"
+
+msgid "Author Name(s)"
+msgstr "Nombre del Autor(es)"
+
+msgid "Use Current Date"
+msgstr "Usar Fecha Actual"
+
+msgid "Output Format"
+msgstr "Formato de Salida"
+
+msgid "HTML Document"
+msgstr "Documento HTML"
+
+msgid "PDF Document"
+msgstr "Documento PDF"
+
+msgid "Word Document"
+msgstr "Documento Word"
+
+msgid "Include Table of Contents"
+msgstr "Incluir Tabla de Contenido"
+
+msgid "Number Sections"
+msgstr "Numerar Secciones"
+
+msgid "Metadata"
+msgstr "Metadatos"
+
+msgid "Format"
+msgstr "Formato"
+
+msgid "Export Format"
+msgstr "Formato de Exportación"
+
+msgid "Options"
+msgstr "Opciones"
+
+msgid "Select Quarto element to generate:"
+msgstr "Seleccione el elemento Quarto a generar:"
+
+msgid "[Code] Basic R Chunk"
+msgstr "[Código] Bloque R Básico"
+
+msgid "[Code] Plot & Cross-reference"
+msgstr "[Código] Gráfico y Referencia Cruzada"
+
+msgid "[Layout] Callouts (Notes)"
+msgstr "[Diseño] Llamados (Notas)"
+
+msgid "[Layout] Tabsets (HTML Tabs)"
+msgstr "[Diseño] Pestañas (HTML Tabs)"
+
+msgid "[Layout] Multiple Columns"
+msgstr "[Diseño] Múltiples Columnas"
+
+msgid "Generates syntax for Quarto features."
+msgstr "Genera sintaxis para características de Quarto."
+
+msgid "Manuscript Title"
+msgstr "Título del Manuscrito"
+
+msgid "Abstract (Optional)"
+msgstr "Resumen (Opcional)"
+
+msgid "Academic Journal Extension"
+msgstr "Extensión de Revista Académica"
+
+msgid "Output Document Type"
+msgstr "Tipo de Documento de Salida"
+
+msgid "PDF (Recommended)"
+msgstr "PDF (Recomendado)"
+
+msgid "Word Document (.docx)"
+msgstr "Documento Word (.docx)"
+
+msgid "Note: Quarto Journals require extensions installed via Terminal."
+msgstr "Nota: Quarto Journals requiere instalar extensiones vía Terminal."

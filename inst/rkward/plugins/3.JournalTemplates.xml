@@ -1,0 +1,41 @@
+<!DOCTYPE rkplugin >
+<document>
+	<!--
+		this code was generated using the rkwarddev package.
+	perhaps don't make changes here, but in the rkwarddev script instead!
+	-->
+	<code file="3.JournalTemplates.js" />
+	<help file="3.JournalTemplates.rkh" />
+	<!--
+		<dependencies>
+		</dependencies>
+	-->
+	<logic>
+		<!--
+			<convert id="!edit!" sources="!edit!" mode="equals" standard="!edit!" />
+		-->
+		<!--
+			<connect governor="!edit!.state" client="!edit!.enabled" />
+		-->
+	</logic>
+	<dialog label="3. Journal Templates">
+		<column id="clm_tNQJTNQJTM">
+			<text id="txt_NtQrtJrT">
+				Note: Quarto Journals require extensions installed via Terminal.
+			</text>
+			<input label="Manuscript Title" id="c3_title" initial="Academic Paper Title" required="true" />
+			<input label="Abstract (Optional)" id="c3_abstract" initial="Enter abstract..." size="large" />
+			<dropdown id="c3_journal" label="Academic Journal Extension">
+				<option label="APA 7th Edition (apaquarto)" value="apaquarto" checked="true" />
+				<option label="Elsevier (quarto-journals)" value="elsevier" />
+				<option label="IEEE (quarto-journals)" value="ieee" />
+				<option label="PLOS (quarto-journals)" value="plos" />
+			</dropdown>
+			<dropdown id="c3_format" label="Output Document Type">
+				<option label="PDF (Recommended)" value="pdf" checked="true" />
+				<option label="Word Document (.docx)" value="docx" />
+				<option label="HTML Document" value="html" />
+			</dropdown>
+		</column>
+	</dialog>
+</document>

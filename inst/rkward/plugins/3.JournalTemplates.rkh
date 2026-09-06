@@ -1,0 +1,40 @@
+<!DOCTYPE rkhelp >
+<document>
+	<!--
+		this code was generated using the rkwarddev package.
+	perhaps don't make changes here, but in the rkwarddev script instead!
+	-->
+	<title>
+		3. Journal Templates
+	</title>
+	<summary>
+	</summary>
+	<usage>
+	</usage>
+	<!--
+		<section id="sct_EDITORDE" title="EDIT OR DELETE ME">
+			EDIT OR DELETE ME
+		</section>
+	-->
+	<settings>
+		<setting id="c3_title">
+		</setting>
+		<setting id="c3_abstract">
+		</setting>
+		<setting id="c3_journal">
+		</setting>
+		<setting id="c3_format">
+		</setting>
+	</settings>
+	<!--
+		<related>
+			<ul>
+				<li>
+					<link href="rkward://rhelp/..." />
+				</li>
+			</ul>
+		</related>
+	-->
+	<technical>
+	</technical>
+</document>

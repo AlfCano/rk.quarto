@@ -1,0 +1,36 @@
+<!DOCTYPE rkplugin >
+<document>
+	<!--
+		this code was generated using the rkwarddev package.
+	perhaps don't make changes here, but in the rkwarddev script instead!
+	-->
+	<code file="2.QuartoCheatSheet.js" />
+	<help file="2.QuartoCheatSheet.rkh" />
+	<!--
+		<dependencies>
+		</dependencies>
+	-->
+	<logic>
+		<!--
+			<convert id="!edit!" sources="!edit!" mode="equals" standard="!edit!" />
+		-->
+		<!--
+			<connect governor="!edit!.state" client="!edit!.enabled" />
+		-->
+	</logic>
+	<dialog label="2. Quarto Cheat Sheet">
+		<column id="clm_tGQGQ2SQCB">
+			<text id="txt_GnrtssyQ">
+				Generates syntax for Quarto features.
+			</text>
+			<dropdown id="c2_type" label="Select Quarto element to generate:">
+				<option label="[Code] Basic R Chunk" value="chunk_basic" checked="true" />
+				<option label="[Code] Plot &amp; Cross-reference" value="chunk_plot_ref" />
+				<option label="[Layout] Callouts (Notes)" value="lay_callout" />
+				<option label="[Layout] Tabsets (HTML Tabs)" value="lay_tabs" />
+				<option label="[Layout] Multiple Columns" value="lay_cols" />
+			</dropdown>
+			<stretch />
+		</column>
+	</dialog>
+</document>

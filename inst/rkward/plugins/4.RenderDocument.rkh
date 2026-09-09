@@ -23,6 +23,11 @@
 		</setting>
 		<setting id="c4_output">
 		</setting>
+		<caption id="frm_AdvncdOp" />
+		<setting id="c4_quiet">
+		</setting>
+		<setting id="c4_path">
+		</setting>
 	</settings>
 	<!--
 		<related>

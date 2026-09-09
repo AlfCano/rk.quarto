@@ -19,9 +19,9 @@
 		-->
 	</logic>
 	<dialog label="4. Export Quarto Document">
-		<column id="clm_tSYSYQF44T">
-			<text id="txt_SlctqmdY">
-				Select a .qmd file to compile it into the final output format. You can define the destination name and location.
+		<column id="clm_tSSQF44TOF">
+			<text id="txt_Slctqmdf">
+				Select a .qmd file to compile it into the final output format.
 			</text>
 			<browser label="Quarto File (.qmd)" type="file" id="c4_input" />
 			<dropdown id="c4_format" label="Target Output Format">
@@ -41,6 +41,12 @@
 				<option label="eBook (ePub)" value="epub" />
 			</dropdown>
 			<browser label="Save as (Leave blank to use source directory and auto-extension)" type="savefile" id="c4_output" required="false" />
+			<frame label="Advanced Options" id="frm_AdvncdOp">
+				<column id="clm_c4QHTRUEQC">
+					<checkbox id="c4_quiet" label="Quiet mode (Hide compilation log)" value="TRUE" checked="true" />
+					<input label="Quarto CLI Path (Only if auto-detect fails, e.g., /usr/local/bin/quarto)" id="c4_path" />
+				</column>
+			</frame>
 		</column>
 	</dialog>
 </document>

@@ -22,20 +22,51 @@ function calculate(is_preview){
     var input = cleanStr(getValue('c4_input'));
     var format = getValue('c4_format');
     var output = cleanStr(getValue('c4_output'));
+    var custom_path = cleanStr(getValue('c4_path'));
+    var is_quiet = getValue('c4_quiet'); // Read checkbox value
 
+    // 1. PATH ERROR SOLUTION: Auto-detection in RKWard
+    if (custom_path !== '') {
+        echo('Sys.setenv(QUARTO_PATH = \'' + custom_path + '\')\n');
+    } else {
+        echo('if (Sys.which("quarto") == "" && Sys.getenv("QUARTO_PATH") == "") {\n');
+        echo('  if (file.exists("/usr/local/bin/quarto")) Sys.setenv(QUARTO_PATH = "/usr/local/bin/quarto")\n');
+        echo('  else if (file.exists("/opt/quarto/bin/quarto")) Sys.setenv(QUARTO_PATH = "/opt/quarto/bin/quarto")\n');
+        echo('  else if (file.exists("/Applications/quarto/bin/quarto")) Sys.setenv(QUARTO_PATH = "/Applications/quarto/bin/quarto")\n');
+        echo('}\n');
+    }
+
+    // 2. Prepare files (Avoids the 'paths are not allowed' error)
+    echo('input_file <- \'' + input + '\'\n');
+    if (output !== '' && format !== 'all') {
+        echo('output_target <- \'' + output + '\'\n');
+        echo('out_name <- basename(output_target)\n');
+    }
+
+    // 3. Execute Quarto
     echo('quarto::quarto_render(\n');
-    echo('  input = \'' + input + '\'');
+    echo('  input = input_file');
 
     if (format !== '') {
       echo(',\n  output_format = \'' + format + '\'');
     }
 
     if (output !== '' && format !== 'all') {
-      echo(',\n  output_file = \'' + output + '\'');
+      echo(',\n  output_file = out_name');
     }
 
-    echo(',\n  quiet = TRUE\n');
+    // Use quiet mode based on user selection (TRUE or FALSE)
+    echo(',\n  quiet = ' + is_quiet + '\n');
     echo(')\n');
+
+    // 4. Move the file to the user-defined destination path
+    if (output !== '' && format !== 'all') {
+        echo('generated_file <- file.path(dirname(input_file), out_name)\n');
+        echo('if (normalizePath(generated_file, mustWork=FALSE) != normalizePath(output_target, mustWork=FALSE)) {\n');
+        echo('  file.copy(from = generated_file, to = output_target, overwrite = TRUE)\n');
+        echo('  file.remove(generated_file)\n');
+        echo('}\n');
+    }
   
 }
 

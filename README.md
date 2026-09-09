@@ -2,13 +2,22 @@
 
 > **Quarto Document Generation Suite for RKWard**
 
-![Version](https://img.shields.io/badge/Version-0.0.3-blue.svg)
+![Version](https://img.shields.io/badge/Version-0.0.4-blue.svg)
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 ![RKWard](https://img.shields.io/badge/Platform-RKWard-green)
 [![R Linter](https://github.com/AlfCano/rk.quarto/actions/workflows/lintr.yml/badge.svg)](https://github.com/AlfCano/rk.quarto/actions/workflows/lintr.yml)
 ![AI Gemini](https://img.shields.io/badge/AI-Gemini-4285F4?logo=googlegemini&logoColor=white)
 
 **rk.quarto** is an RKWard plugin that provides a graphical interface for generating boilerplates, YAML headers, and syntax snippets for [Quarto](https://quarto.org/) (`.qmd`) documents. It allows users to easily set up complex metadata, insert native Quarto features (like callouts and multi-column layouts), and configure academic journal extensions without needing to memorize syntax rules.
+
+## What's New in Version 0.0.4
+
+**🚀 Cross-Platform Stability & Smart Rendering**
+
+*   **Cross-Platform Auto-Detection:** RKWard GUI environments often fail to inherit system `$PATH` variables, causing "Quarto not found" errors. The plugin now features a robust auto-detection engine that actively hunts down the Quarto CLI across standard Linux, macOS, and Windows installation paths.
+*   **Smart Export Routing:** Bypassed Quarto's strict "paths are not allowed" restriction for output files. The plugin now safely renders documents in their native directories and uses native R file operations to seamlessly move the final export to your desired destination.
+*   **Strict YAML 1.2 Compliance:** Fixed a rendering crash by ensuring that generated booleans (like `toc: true`) strictly follow Quarto's modern YAML 1.2 standards, moving away from legacy R Markdown syntax (`yes`/`no`).
+*   **Advanced Compilation Controls:** Added a new "Advanced Options" menu. Users can now toggle **Quiet Mode** to show or hide the detailed Quarto compilation log directly in the RKWard console (perfect for debugging broken documents), and manually override the Quarto CLI path if using custom installations.
 
 ## What's New in Version 0.0.3
 

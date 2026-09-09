@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: rk.quarto 0.0.2\n"
+"Project-Id-Version: rk.quarto 0.0.4\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -143,3 +143,12 @@ msgstr "4. Exporter le Document Quarto"
 
 msgid "Select a .qmd file to compile it into the final output format. You can define the destination name and location."
 msgstr "Sélectionnez un fichier .qmd pour le compiler dans le format de sortie final. Vous pouvez définir le nom et l'emplacement de destination."
+
+msgid "Advanced Options"
+msgstr "Options avancées"
+
+msgid "Quiet mode (Hide compilation log)"
+msgstr "Mode silencieux (Masquer le journal de compilation)"
+
+msgid "Quarto CLI Path (Only if auto-detect fails, e.g., /usr/local/bin/quarto)"
+msgstr "Chemin du CLI Quarto (Uniquement si la détection automatique échoue, ex., /usr/local/bin/quarto)"

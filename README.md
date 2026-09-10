@@ -2,13 +2,33 @@
 
 > **Quarto Document Generation Suite for RKWard**
 
-![Version](https://img.shields.io/badge/Version-0.0.4-blue.svg)
+![Version](https://img.shields.io/badge/Version-0.0.5-blue.svg)
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 ![RKWard](https://img.shields.io/badge/Platform-RKWard-green)
 [![R Linter](https://github.com/AlfCano/rk.quarto/actions/workflows/lintr.yml/badge.svg)](https://github.com/AlfCano/rk.quarto/actions/workflows/lintr.yml)
 ![AI Gemini](https://img.shields.io/badge/AI-Gemini-4285F4?logo=googlegemini&logoColor=white)
 
 **rk.quarto** is an RKWard plugin that provides a graphical interface for generating boilerplates, YAML headers, and syntax snippets for [Quarto](https://quarto.org/) (`.qmd`) documents. It allows users to easily set up complex metadata, insert native Quarto features (like callouts and multi-column layouts), and configure academic journal extensions without needing to memorize syntax rules.
+
+
+## Features
+
+*   **GUI-Driven YAML Generation**: Configure complex nested YAML metadata (formats, tables of contents, section numbering) with simple checkboxes and dropdowns.
+*   **One-Click Themes**: Instantly apply professional Bootswatch themes for HTML outputs (Cosmo, Flatly, Darkly, Sketchy, Journal).
+*   **Quarto Syntax Helpers**: 
+    *   **Chunks**: Insert pre-configured R chunks with cross-reference labels (`@fig-label`).
+    *   **Layouts**: Generate Quarto HTML `:::` div containers for notes, tabs, and columns.
+*   **Academic Ready**: Bypass LaTeX headaches by using Quarto's native extension system for academic journals.
+*   **Terminal Helpers**: Automatically generates the exact `quarto add` or `quarto use template` CLI commands you need to paste into your terminal for journal templates to work.
+*   **Seamless Rendering**: Compile your documents locally via the new Exporter tool, which includes real-time path calculations and supports over 10 Quarto output formats (including eBooks and presentations).
+*   **Smart Save**: Leave the "Save as" field blank, and the plugin will automatically calculate the correct output path and file extension (e.g., swapping `.qmd` to `.docx`) in the same directory as your source file. Alternatively, define a custom path to overwrite this behavior.
+
+## What's New in Version 0.0.5
+
+**⚙️ Strict YAML 1.2 Compliance & Boilerplate Polish**
+
+*   **Native Strict Booleans:** Completely overhauled the YAML generation engine across the plugin (Document Builder and Journal Templates). Bypassed R's default behavior of converting logicals to `"yes"/"no"`, using custom handlers to strictly enforce Quarto's required `"true"/"false"` (YAML 1.2 standards). This permanently eliminates the `Validation of YAML front matter failed` crash when toggling features like Tables of Contents or Numbered Sections.
+*   **Future-Proofed Journal Templates:** Upgraded the Academic Journal component to inherit the strict YAML 1.2 handlers. This ensures that complex extensions (like APA 7th Edition or Elsevier formats) will compile flawlessly, and paves the way for safely adding new boolean parameters to journal templates in future updates.
 
 ## What's New in Version 0.0.4
 
@@ -18,6 +38,7 @@
 *   **Smart Export Routing:** Bypassed Quarto's strict "paths are not allowed" restriction for output files. The plugin now safely renders documents in their native directories and uses native R file operations to seamlessly move the final export to your desired destination.
 *   **Strict YAML 1.2 Compliance:** Fixed a rendering crash by ensuring that generated booleans (like `toc: true`) strictly follow Quarto's modern YAML 1.2 standards, moving away from legacy R Markdown syntax (`yes`/`no`).
 *   **Advanced Compilation Controls:** Added a new "Advanced Options" menu. Users can now toggle **Quiet Mode** to show or hide the detailed Quarto compilation log directly in the RKWard console (perfect for debugging broken documents), and manually override the Quarto CLI path if using custom installations.
+
 
 ## What's New in Version 0.0.3
 
@@ -40,17 +61,6 @@
 *   **Native Cheat Sheet:** Quickly generate syntax for Quarto-exclusive features like `callouts`, `panel-tabsets`, HTML columns, and automated cross-referencing.
 *   **Journal Extensions Support:** Integrated support for academic writing without relying on heavy R packages. Generates boilerplates for APA 7th Edition, Elsevier, IEEE, and PLOS using the official Quarto Journal formats.
 
-## Features
-
-*   **GUI-Driven YAML Generation**: Configure complex nested YAML metadata (formats, tables of contents, section numbering) with simple checkboxes and dropdowns.
-*   **One-Click Themes**: Instantly apply professional Bootswatch themes for HTML outputs (Cosmo, Flatly, Darkly, Sketchy, Journal).
-*   **Quarto Syntax Helpers**: 
-    *   **Chunks**: Insert pre-configured R chunks with cross-reference labels (`@fig-label`).
-    *   **Layouts**: Generate Quarto HTML `:::` div containers for notes, tabs, and columns.
-*   **Academic Ready**: Bypass LaTeX headaches by using Quarto's native extension system for academic journals.
-*   **Terminal Helpers**: Automatically generates the exact `quarto add` or `quarto use template` CLI commands you need to paste into your terminal for journal templates to work.
-*   **Seamless Rendering**: Compile your documents locally via the new Exporter tool, which includes real-time path calculations and supports over 10 Quarto output formats (including eBooks and presentations).
-*   **Smart Save**: Leave the "Save as" field blank, and the plugin will automatically calculate the correct output path and file extension (e.g., swapping `.qmd` to `.docx`) in the same directory as your source file. Alternatively, define a custom path to overwrite this behavior.
     
 ## 🌍 Internationalization
 

@@ -15,7 +15,7 @@ local({
     ),
     about = list(
       desc = "RKWard Plugin Suite for Quarto Document generation.",
-      version = "0.0.1",
+      version = "0.0.5",
       url = "https://github.com/AlfCano/rk.quarto",
       license = "GPL (>= 3)"
     )
@@ -68,7 +68,10 @@ local({
     echo('qmd_meta$format <- list()\\n');
     echo('if(length(fmt_opts) > 0) { qmd_meta$format[[\\'' + format + '\\']] <- fmt_opts } else { qmd_meta$format <- \\'' + format + '\\' }\\n');
 
-    echo('yaml_str <- yaml::as.yaml(qmd_meta)\\n');
+    // FIX FOR QUARTO STRICT BOOLEANS: Force 'true'/'false' instead of 'yes'/'no'
+    echo('custom_handlers <- list(logical = function(x) { res <- ifelse(x, \"true\", \"false\"); class(res) <- \"verbatim\"; return(res) })\\n');
+    echo('yaml_str <- yaml::as.yaml(qmd_meta, handlers = custom_handlers)\\n');
+
     echo('full_qmd <- paste0(\"---\\\\n\", yaml_str, \"---\\\\n\\\\n## Introducción\\\\n\")\\n');
   ")
 
@@ -141,26 +144,31 @@ local({
 
   dialog_journal <- rk.XML.dialog(label = "3. Journal Templates", child = rk.XML.col(rk.XML.text("Note: Quarto Journals require extensions installed via Terminal."), c3_title, c3_abstract, c3_journal, c3_format))
 
+  # -----------------------------------------------------------------------------------------
+  # R CODE GENERATION LOGIC (For COMPONENT 3: Journal Templates)
+  # -----------------------------------------------------------------------------------------
   js_calc_journal <- paste0(js_sanitize_input, "
     var title = cleanStr(getValue('c3_title'));
     var abstract = cleanStr(getValue('c3_abstract'));
     var journal = getValue('c3_journal');
     var format = getValue('c3_format');
 
-    // Construir la sintaxis de formato de Quarto (ej. apaquarto-pdf)
+    // Build the Quarto format syntax (e.g., apaquarto-pdf)
     var final_format = journal + '-' + format;
 
     echo('j_meta <- list()\\n');
     echo('j_meta$title <- \\'' + title + '\\'\\n');
     if (abstract != '') echo('j_meta$abstract <- \\'' + abstract + '\\'\\n');
 
-    // Autoría estándar básica para Quarto 1.2+
+    // Standard authorship for Quarto 1.2+
     echo('j_meta$author <- list(list(name = \"John Doe\", affiliations = list(list(name = \"University of Excellence\"))))\\n');
-
     echo('j_meta$format <- \\'' + final_format + '\\'\\n');
-    echo('yaml_str <- yaml::as.yaml(j_meta)\\n');
 
-    // Determinar el comando de terminal requerido
+    // FIX FOR QUARTO STRICT BOOLEANS: Apply the same handlers here just to be safe for future updates!
+    echo('custom_handlers <- list(logical = function(x) { res <- ifelse(x, \"true\", \"false\"); class(res) <- \"verbatim\"; return(res) })\\n');
+    echo('yaml_str <- yaml::as.yaml(j_meta, handlers = custom_handlers)\\n');
+
+    // Determine the required terminal command
     echo('cli_cmd <- \"\"\\n');
     echo('if (\"' + journal + '\" == \"apaquarto\") { cli_cmd <- \"quarto add wviechtb/apaquarto\" } else { cli_cmd <- paste0(\"quarto use template quarto-journals/\", \"' + journal + '\") }\\n');
 
@@ -179,16 +187,158 @@ local({
   comp_journal <- rk.plugin.component("3. Journal Templates", xml = list(dialog = dialog_journal), js = list(require = c("yaml"), calculate = js_calc_journal, printout = js_print_journal), hierarchy = common_hierarchy, rkh = list(help = help_journal))
 
   # =========================================================================================
-  # ASSEMBLE SKELETON (CORRECTED)
+  # SUB-COMPONENT (4): Quarto Renderer (Exporter)
   # =========================================================================================
-  # Ahora sí: El plugin principal va en los argumentos raíz, y SOLO los extras van en 'components'
-  rk.plugin.skeleton(
+  help_render <- rk.rkh.doc(
+    title = rk.rkh.title("4. Render Document"),
+    summary = rk.rkh.summary("Compiles a Quarto (.qmd) file to its final format.")
+  )
+
+  c4_input <- rk.XML.browser("Quarto File (.qmd)", type = "file", required = TRUE, id.name = "c4_input")
+
+  c4_format <- rk.XML.dropdown("Target Output Format", options = list(
+    "The first format defined in the document" = list(val = "", chk = TRUE),
+    "All formats defined in the document" = list(val = "all"),
+    "HTML Document" = list(val = "html"),
+    "PDF Document" = list(val = "pdf"),
+    "Word Document (.docx)" = list(val = "docx"),
+    "RevealJS Presentation (HTML)" = list(val = "revealjs"),
+    "Beamer Presentation (PDF)" = list(val = "beamer"),
+    "PowerPoint Presentation (.pptx)" = list(val = "pptx"),
+    "ODT Document" = list(val = "odt"),
+    "RTF Document" = list(val = "rtf"),
+    "Markdown (GitHub Flavored)" = list(val = "gfm"),
+    "MediaWiki" = list(val = "mediawiki"),
+    "DokuWiki" = list(val = "dokuwiki"),
+    "eBook (ePub)" = list(val = "epub")
+  ), id.name = "c4_format")
+
+  c4_output <- rk.XML.browser("Save as (Leave blank to use source directory and auto-extension)", type = "savefile", required = FALSE, id.name = "c4_output")
+
+  # NEW CONTROL OPTIONS (Bug fix: Removed initial="" to prevent parsing error)
+  c4_quiet <- rk.XML.cbox("Quiet mode (Hide compilation log)", value = "TRUE", chk = TRUE, id.name = "c4_quiet")
+  c4_path <- rk.XML.input("Quarto CLI Path (Only if auto-detect fails, e.g., /usr/local/bin/quarto)", id.name = "c4_path")
+
+  dialog_render <- rk.XML.dialog(label = "4. Export Quarto Document", child = rk.XML.col(
+    rk.XML.text("Select a .qmd file to compile it into the final output format."),
+    c4_input,
+    c4_format,
+    c4_output,
+    rk.XML.frame(label="Advanced Options", child=rk.XML.col(c4_quiet, c4_path))
+  ))
+
+  # -----------------------------------------------------------------------------------------
+  # R CODE GENERATION LOGIC
+  # -----------------------------------------------------------------------------------------
+  js_calc_render <- paste0(js_sanitize_input, "
+    var input = cleanStr(getValue('c4_input'));
+    var format = getValue('c4_format');
+    var output = cleanStr(getValue('c4_output'));
+    var custom_path = cleanStr(getValue('c4_path'));
+    var is_quiet = getValue('c4_quiet'); // Read checkbox value
+
+    // 1. PATH ERROR SOLUTION: Cross-platform Auto-detection in RKWard
+    if (custom_path !== '') {
+        echo('Sys.setenv(QUARTO_PATH = \\'' + custom_path + '\\')\\n');
+    } else {
+        echo('if (Sys.which(\"quarto\") == \"\" && Sys.getenv(\"QUARTO_PATH\") == \"\") {\\n');
+        // Linux & macOS fallbacks
+        echo('  if (file.exists(\"/usr/local/bin/quarto\")) Sys.setenv(QUARTO_PATH = \"/usr/local/bin/quarto\")\\n');
+        echo('  else if (file.exists(\"/opt/quarto/bin/quarto\")) Sys.setenv(QUARTO_PATH = \"/opt/quarto/bin/quarto\")\\n');
+        echo('  else if (file.exists(\"/Applications/quarto/bin/quarto\")) Sys.setenv(QUARTO_PATH = \"/Applications/quarto/bin/quarto\")\\n');
+        // Windows fallbacks (.exe)
+        echo('  else if (file.exists(\"C:/Program Files/Quarto/bin/quarto.exe\")) Sys.setenv(QUARTO_PATH = \"C:/Program Files/Quarto/bin/quarto.exe\")\\n');
+        echo('  else if (file.exists(file.path(Sys.getenv(\"LOCALAPPDATA\"), \"Programs/Quarto/bin/quarto.exe\"))) Sys.setenv(QUARTO_PATH = file.path(Sys.getenv(\"LOCALAPPDATA\"), \"Programs/Quarto/bin/quarto.exe\"))\\n');
+        echo('}\\n');
+    }
+
+    // 2. Prepare files (Avoids the 'paths are not allowed' error)
+    echo('input_file <- \\'' + input + '\\'\\n');
+    if (output !== '' && format !== 'all') {
+        echo('output_target <- \\'' + output + '\\'\\n');
+        echo('out_name <- basename(output_target)\\n');
+    }
+
+    // 3. Execute Quarto
+    echo('quarto::quarto_render(\\n');
+    echo('  input = input_file');
+
+    if (format !== '') {
+      echo(',\\n  output_format = \\'' + format + '\\'');
+    }
+
+    if (output !== '' && format !== 'all') {
+      echo(',\\n  output_file = out_name');
+    }
+
+    // Use quiet mode based on user selection (TRUE or FALSE)
+    echo(',\\n  quiet = ' + is_quiet + '\\n');
+    echo(')\\n');
+
+    // 4. Move the file to the user-defined destination path
+    if (output !== '' && format !== 'all') {
+        echo('generated_file <- file.path(dirname(input_file), out_name)\\n');
+        echo('if (normalizePath(generated_file, mustWork=FALSE) != normalizePath(output_target, mustWork=FALSE)) {\\n');
+        echo('  file.copy(from = generated_file, to = output_target, overwrite = TRUE)\\n');
+        echo('  file.remove(generated_file)\\n');
+        echo('}\\n');
+    }
+  ")
+
+  js_print_render <- "
+    var input = getValue('c4_input');
+    var format = getValue('c4_format');
+    var output = getValue('c4_output');
+
+    var format_lbl = 'The first format defined in the document';
+    var ext = '';
+
+    if (format === 'all') { format_lbl = 'All formats defined in the document'; }
+    else if (format === 'html' || format === 'revealjs') { format_lbl = format; ext = '.html'; }
+    else if (format === 'pdf' || format === 'beamer') { format_lbl = format; ext = '.pdf'; }
+    else if (format === 'docx') { format_lbl = 'Word'; ext = '.docx'; }
+    else if (format === 'pptx') { format_lbl = 'PowerPoint'; ext = '.pptx'; }
+    else if (format === 'odt') { format_lbl = 'ODT'; ext = '.odt'; }
+    else if (format === 'rtf') { format_lbl = 'RTF'; ext = '.rtf'; }
+    else if (format === 'gfm') { format_lbl = 'Markdown (GitHub)'; ext = '.md'; }
+    else if (format === 'epub') { format_lbl = 'ePub'; ext = '.epub'; }
+    else if (format !== '') { format_lbl = format; }
+
+    var final_output = output;
+    if (output === '') {
+       if (ext !== '') {
+           final_output = input.replace(/\\\\.[^/.]+$/, \"\") + ext;
+       } else {
+           final_output = \"Same directory as original (.qmd)\";
+       }
+    }
+
+    echo('rk.header(\"Export Quarto Document\", parameters = list(\\n');
+    echo('  \"Quarto File\" = \\'' + input + '\\',\\n');
+    echo('  \"Target Format\" = \\'' + format_lbl + '\\',\\n');
+    echo('  \"Save as\" = \\'' + final_output + '\\'\\n');
+    echo('))\\n');
+  "
+
+  comp_render <- rk.plugin.component(
+    "4. Render Document",
+    xml = list(dialog = dialog_render),
+    js = list(require = c("quarto"), calculate = js_calc_render, printout = js_print_render),
+    hierarchy = common_hierarchy,
+    rkh = list(help = help_render)
+  )
+
+  # =========================================================================================
+  # ASSEMBLE SKELETON
+  # =========================================================================================
+
+    rk.plugin.skeleton(
     about = package_about,
     path = ".",
     xml = list(dialog = dialog_qmd),
     js = list(require = c("yaml"), calculate = js_calc_qmd, printout = js_print_qmd),
     rkh = list(help = help_qmd),
-    components = list(comp_snip, comp_journal), # <--- AQUÍ SOLO ESTÁN EL 2 Y EL 3
+    components = list(comp_snip, comp_journal, comp_render),
     pluginmap = list(name = "1. Document Builder", hierarchy = common_hierarchy),
     create = c("pmap", "xml", "js", "desc", "rkh"),
     load = TRUE,
@@ -196,15 +346,5 @@ local({
     show = FALSE
   )
 
-  # -----------------------------------------------------------------------------------------
-  # TRANSLATION GENERATOR
-  # -----------------------------------------------------------------------------------------
-  tryCatch({
-    rk.updatePluginMessages("rk.quarto", c("es", "de", "fr", "pt_BR"))
-    cat("\nSUCCESS: Translation (.po) files generated.\n")
-  }, error = function(e) {
-    message("\nWARNING: Could not extract .po files automatically.")
-  })
-
-  cat("\nQuarto Plugin Suite (3 Components) successfully generated and corrected.\n")
+  cat("\nQuarto Plugin Suite (4 Components) successfully generated and corrected.\n")
 })

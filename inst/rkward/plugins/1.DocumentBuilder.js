@@ -36,7 +36,10 @@ function calculate(is_preview){
     echo('qmd_meta$format <- list()\n');
     echo('if(length(fmt_opts) > 0) { qmd_meta$format[[\'' + format + '\']] <- fmt_opts } else { qmd_meta$format <- \'' + format + '\' }\n');
 
-    echo('yaml_str <- yaml::as.yaml(qmd_meta)\n');
+    // FIX FOR QUARTO STRICT BOOLEANS: Force 'true'/'false' instead of 'yes'/'no'
+    echo('custom_handlers <- list(logical = function(x) { res <- ifelse(x, "true", "false"); class(res) <- "verbatim"; return(res) })\n');
+    echo('yaml_str <- yaml::as.yaml(qmd_meta, handlers = custom_handlers)\n');
+
     echo('full_qmd <- paste0("---\\n", yaml_str, "---\\n\\n## Introducción\\n")\n');
   
 }

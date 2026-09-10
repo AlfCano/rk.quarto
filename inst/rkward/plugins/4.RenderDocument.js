@@ -25,14 +25,18 @@ function calculate(is_preview){
     var custom_path = cleanStr(getValue('c4_path'));
     var is_quiet = getValue('c4_quiet'); // Read checkbox value
 
-    // 1. PATH ERROR SOLUTION: Auto-detection in RKWard
+    // 1. PATH ERROR SOLUTION: Cross-platform Auto-detection in RKWard
     if (custom_path !== '') {
         echo('Sys.setenv(QUARTO_PATH = \'' + custom_path + '\')\n');
     } else {
         echo('if (Sys.which("quarto") == "" && Sys.getenv("QUARTO_PATH") == "") {\n');
+        // Linux & macOS fallbacks
         echo('  if (file.exists("/usr/local/bin/quarto")) Sys.setenv(QUARTO_PATH = "/usr/local/bin/quarto")\n');
         echo('  else if (file.exists("/opt/quarto/bin/quarto")) Sys.setenv(QUARTO_PATH = "/opt/quarto/bin/quarto")\n');
         echo('  else if (file.exists("/Applications/quarto/bin/quarto")) Sys.setenv(QUARTO_PATH = "/Applications/quarto/bin/quarto")\n');
+        // Windows fallbacks (.exe)
+        echo('  else if (file.exists("C:/Program Files/Quarto/bin/quarto.exe")) Sys.setenv(QUARTO_PATH = "C:/Program Files/Quarto/bin/quarto.exe")\n');
+        echo('  else if (file.exists(file.path(Sys.getenv("LOCALAPPDATA"), "Programs/Quarto/bin/quarto.exe"))) Sys.setenv(QUARTO_PATH = file.path(Sys.getenv("LOCALAPPDATA"), "Programs/Quarto/bin/quarto.exe"))\n');
         echo('}\n');
     }
 

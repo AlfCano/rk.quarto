@@ -2,7 +2,7 @@
 
 > **Quarto Document Generation Suite for RKWard**
 
-![Version](https://img.shields.io/badge/Version-0.0.5-blue.svg)
+![Version](https://img.shields.io/badge/Version-0.0.6-blue.svg)
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 ![RKWard](https://img.shields.io/badge/Platform-RKWard-green)
 [![R Linter](https://github.com/AlfCano/rk.quarto/actions/workflows/lintr.yml/badge.svg)](https://github.com/AlfCano/rk.quarto/actions/workflows/lintr.yml)
@@ -22,6 +22,18 @@
 *   **Terminal Helpers**: Automatically generates the exact `quarto add` or `quarto use template` CLI commands you need to paste into your terminal for journal templates to work.
 *   **Seamless Rendering**: Compile your documents locally via the new Exporter tool, which includes real-time path calculations and supports over 10 Quarto output formats (including eBooks and presentations).
 *   **Smart Save**: Leave the "Save as" field blank, and the plugin will automatically calculate the correct output path and file extension (e.g., swapping `.qmd` to `.docx`) in the same directory as your source file. Alternatively, define a custom path to overwrite this behavior.
+
+## What's New in Version 0.0.6
+
+**🧩 The Ultimate Quarto Snippet Arsenal**
+
+*   **Expanded Cheat Sheet Component:** The Quarto Cheat Sheet component has been massively upgraded into a complete "Swiss Army knife" for document creation. It now generates native, modern Quarto syntax for 15+ advanced features, allowing users transitioning from R Markdown to harness Quarto's "superpowers" effortlessly.
+*   **New Snippets Included:**
+    *   **Advanced Layouts:** Create 2-column figures, complex asymmetrical grids (`layout: "[[1, 1], [1]]"`), expand content to full screen width (`column: screen`), or push figures into the Tufte-style right margin (`column: margin`).
+    *   **Academic Text:** Generate syntax for numbered mathematical equations with cross-references (`@eq-model`), automated footnotes, and bibliographic citations.
+    *   **Code Control:** Instantly insert templates for hiding code (`echo: false`), printing raw markdown (`output: asis`), or generating interactive Code Annotations (`# <1>`).
+    *   **Quarto Shortcodes:** Access Quarto's exclusive shortcodes to force universal pagebreaks (`{{< pagebreak >}}`), embed external videos, or include other `.qmd` files for multi-chapter books.
+    *   **Production-Ready Academic Templates:** The Journal Templates component now supports critical metadata required by publishers (like Elsevier, IEEE, or PLOS). You can automatically generate YAML keys for **Keywords** and **Bibliography** files, and seamlessly inject the `keep-tex: true` parameter, which is strictly required by most scientific journals to process final LaTeX submissions.
 
 ## What's New in Version 0.0.5
 

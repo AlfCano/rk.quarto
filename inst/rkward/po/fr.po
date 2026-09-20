@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: rk.quarto 0.0.4\n"
+"Project-Id-Version: rk.quarto 0.0.6\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -152,3 +152,64 @@ msgstr "Mode silencieux (Masquer le journal de compilation)"
 
 msgid "Quarto CLI Path (Only if auto-detect fails, e.g., /usr/local/bin/quarto)"
 msgstr "Chemin du CLI Quarto (Uniquement si la détection automatique échoue, ex., /usr/local/bin/quarto)"
+
+msgid "[Code] Hide Code & Warnings"
+msgstr "[Code] Masquer le Code et les Avertissements"
+
+msgid "[Code] Code Annotations"
+msgstr "[Code] Annotations dans le Code"
+
+msgid "[Code] Raw Markdown Output (asis)"
+msgstr "[Code] Sortie Markdown Brute (asis)"
+
+msgid "[Layout] Screen/Page Width Content"
+msgstr "[Mise en page] Contenu Largeur Écran/Page"
+
+msgid "[Layout] Margin Figure/Table"
+msgstr "[Mise en page] Figure/Tableau dans la Marge"
+
+msgid "[Text] Equation & Cross-reference"
+msgstr "[Texte] Équation et Référence Croisée"
+
+msgid "[Text] Footnotes & Citations"
+msgstr "[Texte] Notes de bas de page et Citations"
+
+msgid "[Shortcode] Pagebreak"
+msgstr "[Raccourci] Saut de Page (Pagebreak)"
+
+msgid "[Shortcode] Embed Video"
+msgstr "[Raccourci] Intégrer une Vidéo"
+
+msgid "[Shortcode] Include File"
+msgstr "[Raccourci] Inclure un Fichier Externe"
+
+msgid "[Code] Table & Cross-reference"
+msgstr "[Code] Tableau et Référence croisée"
+
+msgid "[Layout] Callouts (Notes/Warnings)"
+msgstr "[Mise en page] Alertes (Notes/Avertissements)"
+
+msgid "[Layout] 2-Column Figures"
+msgstr "[Mise en page] Figures sur 2 Colonnes"
+
+msgid "[Layout] Sub-captions (a, b)"
+msgstr "[Mise en page] Sous-titres (a, b)"
+
+msgid "[Layout] Complex Figure Grid"
+msgstr "[Mise en page] Grille Complexe de Figures"
+
+msgid "[Layout] Place content in Margin"
+msgstr "[Mise en page] Placer le contenu dans la Marge"
+
+msgid "Keywords (comma separated)"
+msgstr "Mots-clés (séparés par des virgules)"
+
+msgid "Academic Options"
+msgstr "Options Académiques"
+
+msgid "Keep LaTeX source file (keep-tex) - Required for journal submissions"
+msgstr "Conserver le fichier source LaTeX (keep-tex) - Requis pour soumission aux revues"
+
+msgid "Include Bibliography (references.bib)"
+msgstr "Inclure la Bibliographie (references.bib)"
+

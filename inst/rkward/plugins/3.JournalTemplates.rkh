@@ -21,9 +21,16 @@
 		</setting>
 		<setting id="c3_abstract">
 		</setting>
+		<setting id="c3_keywords">
+		</setting>
 		<setting id="c3_journal">
 		</setting>
 		<setting id="c3_format">
+		</setting>
+		<caption id="frm_AcdmcOpt" />
+		<setting id="c3_keeptex">
+		</setting>
+		<setting id="c3_bib">
 		</setting>
 	</settings>
 	<!--

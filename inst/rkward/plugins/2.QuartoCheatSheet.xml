@@ -26,9 +26,24 @@
 			<dropdown id="c2_type" label="Select Quarto element to generate:">
 				<option label="[Code] Basic R Chunk" value="chunk_basic" checked="true" />
 				<option label="[Code] Plot &amp; Cross-reference" value="chunk_plot_ref" />
-				<option label="[Layout] Callouts (Notes)" value="lay_callout" />
+				<option label="[Code] Table &amp; Cross-reference" value="chunk_tbl_ref" />
+				<option label="[Code] Hide Code &amp; Warnings" value="chunk_hide" />
+				<option label="[Code] Code Annotations" value="chunk_annotate" />
+				<option label="[Code] Raw Markdown Output (asis)" value="chunk_asis" />
+				<option label="[Layout] Callouts (Notes/Warnings)" value="lay_callout" />
 				<option label="[Layout] Tabsets (HTML Tabs)" value="lay_tabs" />
 				<option label="[Layout] Multiple Columns" value="lay_cols" />
+				<option label="[Layout] 2-Column Figures" value="lay_2col_fig" />
+				<option label="[Layout] Sub-captions (a, b)" value="lay_subcap" />
+				<option label="[Layout] Complex Figure Grid" value="lay_grid" />
+				<option label="[Layout] Screen/Page Width Content" value="lay_screen" />
+				<option label="[Layout] Place content in Margin" value="lay_margin" />
+				<option label="[Layout] Margin Figure/Table" value="lay_margin_fig" />
+				<option label="[Text] Equation &amp; Cross-reference" value="text_eq" />
+				<option label="[Text] Footnotes &amp; Citations" value="text_cite" />
+				<option label="[Shortcode] Pagebreak" value="short_pagebreak" />
+				<option label="[Shortcode] Embed Video" value="short_video" />
+				<option label="[Shortcode] Include File" value="short_include" />
 			</dropdown>
 			<stretch />
 		</column>

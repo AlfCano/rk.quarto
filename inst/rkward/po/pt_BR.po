@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: rk.quarto 0.0.4\n"
+"Project-Id-Version: rk.quarto 0.0.6\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -152,3 +152,63 @@ msgstr "Modo silencioso (Ocultar log de compilação)"
 
 msgid "Quarto CLI Path (Only if auto-detect fails, e.g., /usr/local/bin/quarto)"
 msgstr "Caminho do CLI do Quarto (Apenas se a detecção automática falhar, ex., /usr/local/bin/quarto)"
+
+msgid "Keywords (comma separated)"
+msgstr "Palavras-chave (separadas por vírgula)"
+
+msgid "Academic Options"
+msgstr "Opções Acadêmicas"
+
+msgid "Keep LaTeX source file (keep-tex) - Required for journal submissions"
+msgstr "Manter arquivo fonte LaTeX (keep-tex) - Obrigatório para submissão a revistas"
+
+msgid "Include Bibliography (references.bib)"
+msgstr "Incluir Bibliografia (references.bib)"
+
+msgid "[Code] Table & Cross-reference"
+msgstr "[Código] Tabela e Referência cruzada"
+
+msgid "[Layout] Callouts (Notes/Warnings)"
+msgstr "[Layout] Alertas (Notas/Avisos)"
+
+msgid "[Layout] 2-Column Figures"
+msgstr "[Layout] Figuras em 2 Colunas"
+
+msgid "[Layout] Sub-captions (a, b)"
+msgstr "[Layout] Sublegendas (a, b)"
+
+msgid "[Layout] Complex Figure Grid"
+msgstr "[Layout] Grade Complexa de Figuras"
+
+msgid "[Layout] Place content in Margin"
+msgstr "[Layout] Colocar conteúdo na Margem"
+
+msgid "[Code] Hide Code & Warnings"
+msgstr "[Código] Ocultar Código e Avisos"
+
+msgid "[Code] Code Annotations"
+msgstr "[Código] Anotações no Código"
+
+msgid "[Code] Raw Markdown Output (asis)"
+msgstr "[Código] Saída Markdown Pura (asis)"
+
+msgid "[Layout] Screen/Page Width Content"
+msgstr "[Layout] Conteúdo na Largura da Tela/Página"
+
+msgid "[Layout] Margin Figure/Table"
+msgstr "[Layout] Figura/Tabela na Margem"
+
+msgid "[Text] Equation & Cross-reference"
+msgstr "[Texto] Equação e Referência Cruzada"
+
+msgid "[Text] Footnotes & Citations"
+msgstr "[Texto] Notas de Rodapé e Citações"
+
+msgid "[Shortcode] Pagebreak"
+msgstr "[Atalho] Quebra de Página (Pagebreak)"
+
+msgid "[Shortcode] Embed Video"
+msgstr "[Atalho] Incorporar Vídeo"
+
+msgid "[Shortcode] Include File"
+msgstr "[Atalho] Incluir Arquivo Externo"
